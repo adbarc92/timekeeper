@@ -1,29 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
+import Clock from './components/clock/Clock';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+  }, []);
+
+  function handleClick() {}
 
   return (
     <div className='App'>
-      <div>
-        <a href='https://vitejs.dev' target='_blank'>
-          <img src='/vite.svg' className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://reactjs.org' target='_blank'>
-          <img
-            src={reactLogo}
-            className='logo react'
-            alt='React logo'
-          />
-        </a>
-      </div>
       <h1>Shift Keeper</h1>
+      <Clock time={time} />
       <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <button onClick={() => handleClick()}>Clock-in</button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
