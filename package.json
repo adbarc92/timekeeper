@@ -1,0 +1,9 @@
+{
+  "name": "timekeeper",
+  "version": "1.0.0",
+  "description": "A simple time clock application",
+  "main": "index.js",
+  "repository": "https://github.com/adbarc92/timekeeper.git",
+  "author": "adbarc92 <adbarclay92@gmail.com>",
+  "license": "MIT"
+}
