@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppController } from 'src/app.controller';
+import { AppService } from 'src/app.service';
+import { ShiftsModule } from 'src/shifts/shifts.module';
 
 @Module({
-  imports: [],
+  imports: [ShiftsModule],
   controllers: [AppController],
   providers: [AppService],
 })
