@@ -1,9 +1,11 @@
 import { Employee } from 'src/models/employees/entities/employee.entity';
+import { ShiftItem } from 'src/models/shiftItems/entities/shiftItem.entity';
 import {
   Entity,
   JoinTable,
   PrimaryGeneratedColumn,
   ManyToMany,
+  OneToMany,
   Column,
 } from 'typeorm';
 
@@ -16,6 +18,11 @@ export class Shift {
   @JoinTable()
   employees: Employee[];
 
+  @OneToMany(() => ShiftItem, (shiftItem) => shiftItem.shift, {
+    cascade: true,
+  })
+  shiftItems: ShiftItem[];
+
   @Column({ type: 'date' })
   date: string;
 
@@ -24,10 +31,4 @@ export class Shift {
 
   @Column()
   endHour: number;
-
-  @Column()
-  holiday: boolean;
-
-  @Column()
-  weekend: boolean;
 }
