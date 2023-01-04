@@ -7,6 +7,8 @@ import {
   ManyToMany,
   OneToMany,
   Column,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
@@ -27,4 +29,10 @@ export class Shift {
 
   @Column()
   endHour: number;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  createdAt!: Date;
+
+  @UpdateDateColumn({ type: 'timestamp' })
+  updatedAt!: Date;
 }

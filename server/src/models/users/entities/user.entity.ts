@@ -1,5 +1,12 @@
 import { Employee } from 'src/models/employees/entities/employee.entity';
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class User {
@@ -11,6 +18,12 @@ export class User {
 
   @Column()
   type: 'ADMIN' | 'NON_ADMIN';
+
+  @CreateDateColumn({ type: 'timestamp' })
+  createdAt!: Date;
+
+  @UpdateDateColumn({ type: 'timestamp' })
+  updatedAt!: Date;
 
   /* STRETCH GOAL: add hashed_password and salt here */
 }

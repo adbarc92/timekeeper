@@ -6,6 +6,8 @@ import {
   PrimaryGeneratedColumn,
   OneToMany,
   OneToOne,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
@@ -30,4 +32,10 @@ export class Employee {
 
   @OneToOne(() => User, (user) => user.employee)
   user: User | null;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  createdAt!: Date;
+
+  @UpdateDateColumn({ type: 'timestamp' })
+  updatedAt!: Date;
 }

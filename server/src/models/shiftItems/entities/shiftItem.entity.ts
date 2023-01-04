@@ -4,6 +4,8 @@ import {
   PrimaryGeneratedColumn,
   Column,
   JoinTable,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import { Employee } from 'src/models/employees/entities/employee.entity';
 import { Shift } from 'src/models/shifts/entities/shift.entity';
@@ -34,4 +36,10 @@ export class ShiftItem {
 
   @Column({ type: 'timestamp', nullable: true })
   endTime: Date | null;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  createdAt!: Date;
+
+  @UpdateDateColumn({ type: 'timestamp' })
+  updatedAt!: Date;
 }

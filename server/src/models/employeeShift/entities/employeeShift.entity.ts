@@ -1,6 +1,14 @@
 import { Employee } from 'src/models/employees/entities/employee.entity';
 import { Shift } from 'src/models/shifts/entities/shift.entity';
-import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryColumn,
+  ManyToOne,
+  JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class EmployeeShift {
@@ -23,4 +31,10 @@ export class EmployeeShift {
 
   @Column({ type: 'timestamp', nullable: true })
   clockOutTime: Date | null;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  createdAt!: Date;
+
+  @UpdateDateColumn({ type: 'timestamp' })
+  updatedAt!: Date;
 }
