@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { UserType } from '../interfaces/user.interface';
 
 @Entity()
 export class User {
@@ -17,13 +18,13 @@ export class User {
   employee: Employee;
 
   @Column()
-  type: 'ADMIN' | 'NON_ADMIN';
+  type: UserType;
 
   @CreateDateColumn({ type: 'timestamp' })
-  createdAt!: Date;
+  createdAt: Date;
 
   @UpdateDateColumn({ type: 'timestamp' })
-  updatedAt!: Date;
+  updatedAt: Date;
 
   /* STRETCH GOAL: add hashed_password and salt here */
 }

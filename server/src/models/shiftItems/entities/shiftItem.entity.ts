@@ -9,6 +9,7 @@ import {
 } from 'typeorm';
 import { Employee } from 'src/models/employees/entities/employee.entity';
 import { Shift } from 'src/models/shifts/entities/shift.entity';
+import { ShiftItemType } from '../interfaces/shiftItem.interface';
 
 /**
  * ShiftItem entails both breaks and lunches.
@@ -29,17 +30,17 @@ export class ShiftItem {
   shift: Shift;
 
   @Column()
-  type: 'LUNCH' | 'BREAK';
+  type: ShiftItemType;
+
+  @Column({ type: 'timestamp' })
+  startTimestamp: Date;
 
   @Column({ type: 'timestamp', nullable: true })
-  startTime: Date;
-
-  @Column({ type: 'timestamp', nullable: true })
-  endTime: Date | null;
+  endTimestamp: Date | null;
 
   @CreateDateColumn({ type: 'timestamp' })
-  createdAt!: Date;
+  createdAt: Date;
 
   @UpdateDateColumn({ type: 'timestamp' })
-  updatedAt!: Date;
+  updatedAt: Date;
 }
