@@ -18,9 +18,9 @@ export class EmployeeShift {
   @JoinColumn({ name: 'shiftId' })
   shift: Shift;
 
-  @Column({ type: 'timestamptz', nullable: true })
+  @Column({ type: 'timestamp', nullable: true })
   clockInTime: Date;
 
-  @Column({ type: 'timestamptz', nullable: true })
+  @Column({ type: 'timestamp', nullable: true })
   clockOutTime: Date | null;
 }

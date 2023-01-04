@@ -22,21 +22,21 @@ export class ShiftItem {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => Employee, (employee) => employee.shiftItems, {
+  @ManyToOne(() => Employee, (employee: Employee) => employee.shiftItems, {
     cascade: true,
   })
   @JoinTable()
   employee: Employee;
 
-  @ManyToOne(() => Shift, (shift) => shift.shiftItems)
+  @ManyToOne(() => Shift, (shift: Shift) => shift.shiftItems)
   shift: Shift;
 
   @Column()
   type: ShiftItemType;
 
-  @Column({ type: 'timestamptz', nullable: true })
+  @Column({ type: 'timestamp', nullable: true })
   startTime: Date;
 
-  @Column({ type: 'timestamptz', nullable: true })
+  @Column({ type: 'timestamp', nullable: true })
   endTime: Date | null;
 }

@@ -14,10 +14,6 @@ export class Shift {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToMany(() => Employee)
-  @JoinTable()
-  employees: Employee[];
-
   @OneToMany(() => ShiftItem, (shiftItem) => shiftItem.shift, {
     cascade: true,
   })
