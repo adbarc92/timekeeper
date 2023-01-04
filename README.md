@@ -19,3 +19,4 @@ A simple shift management application.
 ## Design Notes
 
 - The server file structure is based on this [post](https://medium.com/the-crowdlinker-chronicle/best-way-to-structure-your-directory-code-nestjs-a06c7a641401)
+- The employee predates the user. The employee is created on-hire; the user is created when the employee logs in.

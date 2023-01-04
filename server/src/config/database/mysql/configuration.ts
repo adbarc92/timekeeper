@@ -11,20 +11,8 @@ export default TypeOrmModule.forRoot({
   port: 3306,
   username: 'root',
   password: 'root',
-  database: 'test',
+  database: 'paychex',
   entities: [User, Employee, ShiftItem, Shift, EmployeeShift],
   synchronize: true,
+  logging: true,
 });
-
-// import { DataSource } from 'typeorm';
-
-// export default new DataSource({
-//   type: 'mysql',
-//   host: 'localhost',
-//   port: 3306,
-//   username: 'root',
-//   password: 'root',
-//   database: 'test',
-//   entities: [User],
-//   synchronize: true,
-// });

@@ -1,10 +1,7 @@
-import { Employee } from 'src/models/employees/entities/employee.entity';
 import { ShiftItem } from 'src/models/shiftItems/entities/shiftItem.entity';
 import {
   Entity,
-  JoinTable,
   PrimaryGeneratedColumn,
-  ManyToMany,
   OneToMany,
   Column,
   CreateDateColumn,
@@ -31,8 +28,8 @@ export class Shift {
   endHour: number;
 
   @CreateDateColumn({ type: 'timestamp' })
-  createdAt!: Date;
+  createdAt: Date;
 
   @UpdateDateColumn({ type: 'timestamp' })
-  updatedAt!: Date;
+  updatedAt: Date;
 }
